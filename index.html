@@ -10,14 +10,15 @@
         @media print {
             h3 { break-after: avoid; page-break-after: avoid; }
             .skills-tags, .plain-list { break-inside: avoid; page-break-inside: avoid; }
-            /* Ademruimte boven en onder elke pagina, ook na een pagina-overgang */
-            main.container {
-                padding-top: 12mm;
-                padding-bottom: 12mm;
+            /* Een kaart die over twee pagina's loopt, krijgt op de nieuwe pagina opnieuw zijn binnenruimte */
+            .card {
                 -webkit-box-decoration-break: clone;
                 box-decoration-break: clone;
             }
-            .hero { margin-bottom: 0; }
+            /* Ruimte tussen functies als binnenruimte, zodat die blijft staan als een functie naar een nieuwe pagina schuift */
+            .job { margin-bottom: 0; }
+            .job + .job { padding-top: 18px; }
+            .job + .job::before { top: 23px; }
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
